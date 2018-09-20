@@ -594,10 +594,15 @@ namespace gp\tool{
 				'options'					=>	'options',
 				'Copy'						=>	'Copy',
 				'Copy to Clipboard'			=>	'CopyToClipboard',
+				'Section Attributes'		=>	'SectionAttributes',
 				'Available Classes'			=>	'AvailableClasses',
+				'Attribute'					=>	'Attribute',
+				'Add Attribute'				=>	'AddAttribute',
+				'Value'						=>	'Value',
 				'Visibility'				=>	'Visibility',
 				'remove'					=>	'remove',
 				'delete'					=>	'del',
+				'Move Behind'				=>	'MoveBehind',
 				'Section %s'				=>	'Section',
 				'generic_delete_confirm'	=>	'generic_delete_confirm',
 			);
@@ -1177,7 +1182,7 @@ namespace gp\tool{
 				return;
 			}
 
-			$msg = 'Warning: One or more components have caused fatal errors and have been disabled. '
+			$msg = 'Warning: One or more components have caused fatal errors. <br/>'
 					.\gp\tool::Link('Admin/Errors','More Information','','style="white-space:nowrap"')
 					.' &nbsp; '
 					.\gp\tool::Link($page->title,'Clear All Errors','cmd=ClearErrors','','ClearErrors'); //cannot be creq

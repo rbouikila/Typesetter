@@ -737,7 +737,8 @@ $gp.inputs.check_all = function(){
 $gp.inputs.cnreq = function(evt){
 	evt.preventDefault();
 	var query = $(this.form).serialize();
-	$gp.Cookie('cookie_cmd',encodeURIComponent(query),1);
+	$gp.SetCookieCmd(query);
+	//$gp.Cookie('cookie_cmd',encodeURIComponent(query),1);
 	window.location = strip_from(strip_from(this.form.action,'#'),'?');
 };
 
@@ -1188,6 +1189,19 @@ $(function(){
 			}
 		});
 	});
+
+	/**
+	 * Configuration -> Settings
+	 * Disable minifyjs when combinejs is unchecked
+	 *
+	 */
+	function CheckCombineJs(){
+		var checked = $('#admincontent_inner input[type="checkbox"][name="combinejs"]').prop("checked");
+		$('#admincontent_inner input[type="checkbox"][name="minifyjs"]').prop("disabled", !checked);
+	}
+
+	$('#admincontent_inner input[type="checkbox"][name="combinejs"]').on('change', CheckCombineJs);
+	CheckCombineJs();
 
 
 });
